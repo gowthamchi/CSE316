@@ -1,0 +1,40 @@
+[?2004l
+			---Welcome---
+Resources Menu: 
+		Press '1' for pen
+		Press '2' for paper 
+		Press '3' for   question_paper 
+
+First Resource on shared table:-	1
+Second Resource on shared table:-	2
+
+Choices Made = 'pen', 'paper'
+
+	Student 3 has Completed the assignment.
+
+First Resource on shared table:-	14  2
+Second Resource on shared table:-	3
+
+Choices Made = 'paper', 'question_paper'
+
+	Student 1 has Completed the assignment.
+
+First Resource on shared table:-	2
+Second Resource on shared table:-	2
+
+	 Error .. Try again with different choices.
+
+First Resource on shared table:-	1
+Second Resource on shared table:-	1
+
+	 Error .. Try again with different choices.
+
+First Resource on shared table:-	1
+Second Resource on shared table:-	3
+
+Choices Made = 'pen', 'question_paper'
+
+	Student 2 has Completed the assignment. 
+
+First Resource on shared table:-	2 3
+Second Resource on shared table:-	1
