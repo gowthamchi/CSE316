@@ -1,0 +1,38 @@
+Report:
+
+The given code is a C program that simulates a teacher and three students who are completing assignments using shared resources.
+The shared resources are represented using a 2D integer array student with dimensions 3x4. Each row represents a student and each column represents a resource.
+
+The pthread_mutex_t variable lck is used to ensure thread synchronization and protect access to shared resources. It is initialized using pthread_mutex_init().
+
+The teacher() function is a thread function that takes input from the user for the two resources on the shared table (ch1 and ch2). It is responsible for setting
+the values of ch1 and ch2 after acquiring the lock on the mutex using pthread_mutex_lock() and releasing it using pthread_mutex_unlock().
+
+The student1(), student2(), and student3() functions are also thread functions representing three different students. They simulate the completion of assignments by 
+setting the value of the corresponding resource in the student array to 1 after acquiring the lock on the mutex using pthread_mutex_lock() and releasing it using
+pthread_mutex_unlock().
+
+The main function of the program contains a loop that continues until all three students have completed their assignments (student[1][4]==1 && student[2][4]==1 && 
+student[3][4]==1). Inside the loop, the teacher thread is created and joined using pthread_create() and pthread_join(), respectively. Depending on the choices made 
+by the teacher for ch1 and ch2, the corresponding student thread is created and joined. If the choices made by the teacher do not match any of the conditions, 
+an error message is printed.
+
+Overall, the code demonstrates the usage of pthreads and mutex for thread synchronization in a simple simulation of shared resources being used by multiple threads.
+However, there are a few issues that need to be addressed to ensure correct execution:
+
+Race condition: The shared student array is accessed and modified by multiple threads (teacher(), student1(), student2(), and student3()) without proper 
+synchronization, which can lead to race conditions and undefined behavior. The mutex lck should be used consistently to protect access to the shared student
+array in all the functions.
+
+Input validation: The code takes input from the user without any validation, which can lead to incorrect values being stored in ch1 and ch2. Proper input 
+validation should be implemented to ensure correct behavior.
+
+Resource allocation logic: The logic for allocating resources to students based on the choices made by the teacher needs to be reviewed carefully to ensure
+correct assignment of resources and prevent deadlocks or incorrect assignments.
+
+Loop condition: The loop condition that checks for completion of assignments (student[1][4]==1 && student[2][4]==1 && student[3][4]==1) may not be sufficient 
+to exit the loop correctly. It depends on the assignment completion logic, which is not clear from the given code.
+
+Error handling: The error handling for thread creation, mutex lock/unlock, and other operations that can fail should be implemented to handle errors gracefully.
+
+It is recommended to thoroughly review and test the code, addressing the above-mentioned issues, to ensure correct and reliable execution.
